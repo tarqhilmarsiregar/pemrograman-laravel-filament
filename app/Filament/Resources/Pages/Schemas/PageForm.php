@@ -10,6 +10,7 @@ use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 use Filament\Schemas\Components\Utilities\Set; // <-- Pastikan ini benar
 use Illuminate\Support\Str;
+use Filament\Forms\Components\RichEditor;
 
 class PageForm
 {
@@ -27,7 +28,7 @@ class PageForm
                     ->required()
                     ->rules(['alpha_dash'])
                     ->unique(ignoreRecord: true),
-                Textarea::make('content')
+                RichEditor::make('content')
                     ->columnSpanFull(),
                 FileUpload::make('featured_image')
                     ->image(),

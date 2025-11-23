@@ -22,6 +22,7 @@ class BannersTable
                 TextColumn::make('title')
                     ->searchable(),
                 TextColumn::make('subtitle')
+                    ->toggleable(isToggledHiddenByDefault: true)
                     ->searchable(),
                 ImageColumn::make('image_url')
                     ->label('Image'),
@@ -31,15 +32,18 @@ class BannersTable
                 TextColumn::make('position')
                     ->searchable(),
                 TextColumn::make('order_index')
+                    ->toggleable(isToggledHiddenByDefault: true)
                     ->numeric()
                     ->sortable(),
                 IconColumn::make('is_active')
                     ->label('Active')
                     ->boolean(),
                 TextColumn::make('start_date')
+                    ->toggleable(isToggledHiddenByDefault: true)
                     ->dateTime()
                     ->sortable(),
                 TextColumn::make('end_date')
+                    ->toggleable(isToggledHiddenByDefault: true)
                     ->dateTime()
                     ->sortable(),
                 TextColumn::make('created_at')

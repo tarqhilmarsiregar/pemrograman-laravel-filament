@@ -9,6 +9,7 @@ use App\Filament\Resources\Pages\Schemas\PageForm;
 use App\Filament\Resources\Pages\Tables\PagesTable;
 use App\Models\Page;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -19,6 +20,7 @@ class PageResource extends Resource
     protected static ?string $model = Page::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedDocumentText;
+    protected static string|UnitEnum|null $navigationGroup = 'Content';
 
     public static function form(Schema $schema): Schema
     {

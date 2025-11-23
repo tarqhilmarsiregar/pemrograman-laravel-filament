@@ -13,8 +13,10 @@ class CategoryForm
         return $schema
             ->components([
                 TextInput::make('kodekategori')
+                    ->label('Kode Kategori')
                     ->required(),
                 TextInput::make('namakategori')
+                    ->label('Nama Kategori')
                     ->required(),
             ]);
     }    

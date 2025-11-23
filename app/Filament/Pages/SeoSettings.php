@@ -12,6 +12,8 @@ use App\Models\SettingSeo;
 use Filament\Actions\Action;
 use Filament\Notifications\Notification;
 use BackedEnum;
+use UnitEnum;
+use Filament\Support\Icons\Heroicon;
 
 class SeoSettings extends Page implements HasForms
 {
@@ -21,8 +23,10 @@ class SeoSettings extends Page implements HasForms
 
     protected string $view = 'filament.pages.seo-settings';
 
-    protected static BackedEnum|string|null $navigationIcon = 'heroicon-o-cog-6-tooth';
-    protected static ?string $navigationLabel = 'SEO Setting';
+    // protected static BackedEnum|string|null $navigationIcon = 'heroicon-o-cog-6-tooth';
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedMagnifyingGlass;
+    protected static ?string $navigationLabel = 'SEO';
+    protected static string|UnitEnum|null $navigationGroup = 'Settings';
     protected static ?string $title = 'Pengaturan SEO Global';
 
     public function mount(): void
@@ -54,7 +58,7 @@ class SeoSettings extends Page implements HasForms
                     ->label('Meta Keywords')
                     ->placeholder('Tambah keyword lalu tekan enter'),
 
-                TagsInput::make('robots')
+                Textarea::make('robots')
                     ->label('Robots')
                     ->placeholder('Contoh: index, follow, nonindex'),
             ])

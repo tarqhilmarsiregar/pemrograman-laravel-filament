@@ -25,16 +25,20 @@ class PagesTable
                     ->searchable(),
                 ImageColumn::make('featured_image'),
                 TextColumn::make('meta_title')
+                    ->toggleable(isToggledHiddenByDefault: true)    
                     ->searchable(),
                 TextColumn::make('meta_description')
+                    ->toggleable(isToggledHiddenByDefault: true)
                     ->searchable(),
                 TextColumn::make('meta_keywords')
+                    ->toggleable(isToggledHiddenByDefault: true)    
                     ->searchable(),
                 IconColumn::make('is_published')
                     ->boolean()
                     ->label('Published'),
                 TextColumn::make('published_at')
                     ->dateTime()
+                    ->toggleable(isToggledHiddenByDefault: true)
                     ->sortable(),
                 TextColumn::make('created_at')
                     ->dateTime()
