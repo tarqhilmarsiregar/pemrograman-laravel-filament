@@ -31,6 +31,10 @@ class ArticlesTable
                     ->sortable(),
                 TextColumn::make('slug')
                     ->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('categoryBlog.name') 
+                    ->label('Kategori') // Label kolom di tabel
+                    ->sortable() // Memungkinkan pengurutan berdasarkan kategori
+                    ->toggleable(),
                 TextColumn::make('status')
                     ->badge()
                     ->color(fn (string $state) => $state === 'published' ? 'success' : 'warning'),

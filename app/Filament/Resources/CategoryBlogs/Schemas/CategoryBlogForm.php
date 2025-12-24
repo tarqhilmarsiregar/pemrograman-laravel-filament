@@ -21,6 +21,10 @@ class CategoryBlogForm
                     ->label('Active')
                     ->default(1)
                     ->required(),
+                TextInput::make('slug')
+                    ->required()
+                    ->rules(['alpha_dash'])
+                    ->unique(ignoreRecord: true),
             ]);
     }
 }

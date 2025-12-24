@@ -27,6 +27,14 @@ class ArticleResource extends Resource
     protected static ?string $recordTitleAttribute = 'title';
     protected static string|UnitEnum|null $navigationGroup = 'Content';
 
+    protected static function mutateFormDataBeforeCreate(array $data): array
+    {
+        // Mengambil ID user yang sedang login dan memasukkannya ke kolom user_id
+        $data['user_id'] = auth()->id();
+
+        return $data;
+    }
+
     public static function form(Schema $schema): Schema
     {
         return ArticleForm::configure($schema);

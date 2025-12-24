@@ -21,6 +21,9 @@ class CategoryBlogsTable
                     ->searchable(),
                 TextColumn::make('description')
                     ->searchable(),
+                TextColumn::make('slug')
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 IconColumn::make('is_active')
                     ->label('Active')
                     ->boolean(),

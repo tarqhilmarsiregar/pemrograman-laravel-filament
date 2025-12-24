@@ -35,9 +35,18 @@ class ArticleForm
                 ->label('Ringkasan')
                 ->maxLength(255),
 
+            Select::make('category_blog_id')
+                ->label('Kategori Blog') // Label untuk UI
+                // Relationship: nama relasi di Model Article (categoryBlog) dan kolom yang ditampilkan (name)
+                ->relationship('categoryBlog', 'name') 
+                ->required() 
+                ->searchable() // Memudahkan pencarian kategori jika banyak
+                ->preload(), // Memuat kategori di awal    
+
             FileUpload::make('featured_image')
                 ->label('Gambar Utama')
                 ->image()
+                ->disk('public') // kurang ininya
                 ->directory('articles')
                 ->visibility('public'), // pastikan storage:link
 
@@ -54,6 +63,7 @@ class ArticleForm
 
             DateTimePicker::make('published_at')
                 ->label('Tanggal Terbit')
+                ->required()
                 ->native(false)
                 ->seconds(false),                //
             ]);
