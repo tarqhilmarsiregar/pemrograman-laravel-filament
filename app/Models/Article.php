@@ -15,11 +15,12 @@ class Article extends Model
     protected $fillable = [
         'title', 'slug', 'excerpt', 'content',
         'status', 'published_at', 'featured_image',
-        'user_id',
+        'user_id', 'meta_description', 'meta_keywords',
     ];
 
     protected $casts = [
         'published_at' => 'datetime',
+        'meta_keywords' => 'array',
     ];
 
     public function categoryBlog() // Nama relasi: categoryBlog

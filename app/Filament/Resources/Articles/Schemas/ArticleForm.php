@@ -7,6 +7,8 @@ use Filament\Schemas\Schema;
 use Filament\Schemas\Components\Utilities\Set; // <-- Pastikan ini benar
 use Illuminate\Support\Str;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor; // <-- PASTIKAN INI ADA
 use Filament\Forms\Components\Select;
@@ -25,6 +27,14 @@ class ArticleForm
                 ->afterStateUpdated(function (Set $set, ?string $state) {
                     $set('slug', Str::slug((string) $state));
                 }),
+
+            Textarea::make('meta_description')
+                ->label('Meta Description')
+                ->maxLength(255),
+
+            TagsInput::make('meta_keywords')
+                ->label('Meta Keywords')
+                ->placeholder('Tambah keyword lalu tekan enter'),
 
             TextInput::make('slug')
                 ->required()
